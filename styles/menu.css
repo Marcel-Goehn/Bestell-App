@@ -34,6 +34,7 @@
     border: 1px solid black;
     display: flex;
     gap: 10px;
+    border-right: none;
 }
 
 .food-class-header {
@@ -56,6 +57,8 @@
     border: 1px solid black;
     padding: 0.625em 0.938em;
     position: relative;
+    cursor: pointer;
+    border-right: none;
 }
 
 .menu:hover {

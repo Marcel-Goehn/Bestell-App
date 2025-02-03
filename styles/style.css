@@ -62,6 +62,8 @@ aside {
     position: relative;
     width: 300px;
     flex-grow: 1;
+    border: 1px solid black;
+    border-top: none;
 }
 
 .mt-3 {
