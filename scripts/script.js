@@ -2,6 +2,7 @@ function init() {
     renderMainDishes();
     renderDessertDishes();
     renderDrinkDishes();
+    renderBasket();
 }
 
 
@@ -35,13 +36,44 @@ function renderDrinkDishes() {
 }
 
 
+function renderBasket(typeOfDish, basketIndex) {
+    let basketRef = document.getElementById('basket');
+    basketRef.innerHTML = ``;
+
+    for (let i = 0; i < basket.length; i++) {
+        basketRef.innerHTML += getBasketTemplate(i, typeOfDish, basketIndex);
+    }
+}
+
+
 function addToBasket(typeOfDish, basketIndex) {
     if (allDishes[typeOfDish][basketIndex].amount == 0) {
-        let pushToBasket = document.getElementById('basket');
         allDishes[typeOfDish][basketIndex].amount++;
-        pushToBasket.innerHTML += getBasketTemplate(typeOfDish, basketIndex);
+        basket.push(allDishes[typeOfDish][basketIndex]);
+        renderBasket(typeOfDish, basketIndex);
     }
     else {
-        allDishes[typeOfDish][basketIndex].amount++; 
+        return;
     }    
+}
+
+
+function decreaseBasketAmount(index, typeOfDish, basketIndex) {
+    basket[index].amount--;
+    allDishes[typeOfDish][basketIndex].amount--;
+    renderBasket();
+}
+
+
+function increaseBasketAmount(index, typeOfDish, basketIndex) {
+    basket[index].amount++;
+    allDishes[typeOfDish][basketIndex].amount++;
+    renderBasket();
+}
+
+
+function deleteFromBasket(index, typeOfDish, basketIndex) {
+    basket.splice(index, 1);
+    allDishes[typeOfDish][basketIndex].amount = 0;
+    renderBasket();
 }

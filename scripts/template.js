@@ -28,13 +28,13 @@ function getDrinkDishesTemplate(index) {
 }
 
 
-function getBasketTemplate(typeOfDish, basketIndex) {
+function getBasketTemplate(index, typeOfDish, basketIndex) {
     return `<tr>
-                <th>${allDishes[typeOfDish][basketIndex].name}</th>
+                <th>${basket[index].name}</th>
             </tr>
             <tr>
-                <td><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FF7F00"><path d="M200-440v-80h560v80H200Z"/></svg>${allDishes[typeOfDish][basketIndex].amount}x<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FF7F00"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></td>
-                <td>${allDishes[typeOfDish][basketIndex].price}€</td>
-                <td><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FF7F00"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg></td>
+                <td><svg onclick="decreaseBasketAmount(${index}, ${typeOfDish}, ${basketIndex})" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FF7F00"><path d="M200-440v-80h560v80H200Z"/></svg>${basket[index].amount}x<svg onclick="increaseBasketAmount(${index}, ${typeOfDish}, ${basketIndex})" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FF7F00"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></td>
+                <td>${basket[index].price}€</td>
+                <td><svg onclick="deleteFromBasket(${index}, ${typeOfDish}, ${basketIndex})" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FF7F00"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg></td>
             </tr>`
 }
