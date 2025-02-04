@@ -9,7 +9,7 @@ function renderMainDishes() {
     let mainDishesRef = document.getElementById('render_main_dishes');
     mainDishesRef.innerHTML = ``;
 
-    for (let i = 0; i < mainDishes.length; i++) {
+    for (let i = 0; i < allDishes.mainDishes.length; i++) {
         mainDishesRef.innerHTML += getMainDishesTemplate(i);    
     }
 }
@@ -19,7 +19,7 @@ function renderDessertDishes() {
     let dessertDishesRef = document.getElementById('render_dessert_dishes');
     dessertDishesRef.innerHTML = ``;
 
-    for (let i = 0; i < dessertDishes.length; i++) {
+    for (let i = 0; i < allDishes.dessertDishes.length; i++) {
         dessertDishesRef.innerHTML += getDessertDishesTemplate(i);        
     }
 }
@@ -29,19 +29,19 @@ function renderDrinkDishes() {
     let drinkDishesRef = document.getElementById('render_drink_dishes');
     drinkDishesRef.innerHTML = ``;
 
-    for (let i = 0; i < drinkDishes.length; i++) {
+    for (let i = 0; i < allDishes.drinkDishes.length; i++) {
         drinkDishesRef.innerHTML += getDrinkDishesTemplate(i);  
     }
 }
 
 
-/*function addToBasket(indexAmount, basketIndex) {
-    if (indexAmount == 0) {
+function addToBasket(typeOfDish, basketIndex) {
+    if (allDishes[typeOfDish][basketIndex].amount == 0) {
         let pushToBasket = document.getElementById('basket');
-        pushToBasket.innerHTML = getBasketTemplate(basketIndex);
-        indexAmount++;
+        allDishes[typeOfDish][basketIndex].amount++;
+        pushToBasket.innerHTML += getBasketTemplate(typeOfDish, basketIndex);
     }
     else {
-        indexAmount++;
-    }
-}*/
+        allDishes[typeOfDish][basketIndex].amount++; 
+    }    
+}
