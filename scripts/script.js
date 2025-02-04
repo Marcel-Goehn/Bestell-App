@@ -36,21 +36,21 @@ function renderDrinkDishes() {
 }
 
 
-function renderBasket(typeOfDish, basketIndex) {
+function renderBasket(typeOfDish, indexOfAllDishes) {
     let basketRef = document.getElementById('basket');
     basketRef.innerHTML = ``;
 
     for (let i = 0; i < basket.length; i++) {
-        basketRef.innerHTML += getBasketTemplate(i, typeOfDish, basketIndex);
+        basketRef.innerHTML += getBasketTemplate(i, typeOfDish, indexOfAllDishes);
     }
 }
 
 
-function addToBasket(typeOfDish, basketIndex) {
-    if (allDishes[typeOfDish][basketIndex].amount == 0) {
-        allDishes[typeOfDish][basketIndex].amount++;
-        basket.push(allDishes[typeOfDish][basketIndex]);
-        renderBasket(typeOfDish, basketIndex);
+function addToBasket(typeOfDish, indexOfAllDishes) {
+    if (allDishes[typeOfDish][indexOfAllDishes].amount == 0) {
+        allDishes[typeOfDish][indexOfAllDishes].amount++;
+        basket.push(allDishes[typeOfDish][indexOfAllDishes]);
+        renderBasket(typeOfDish, indexOfAllDishes);
     }
     else {
         return;
@@ -58,22 +58,20 @@ function addToBasket(typeOfDish, basketIndex) {
 }
 
 
-function decreaseBasketAmount(index, typeOfDish, basketIndex) {
-    basket[index].amount--;
-    allDishes[typeOfDish][basketIndex].amount--;
-    renderBasket();
+function decreaseBasketAmount(typeOfDish, indexOfAllDishes) {
+    allDishes[typeOfDish][indexOfAllDishes].amount--;
+    renderBasket(typeOfDish, indexOfAllDishes);
 }
 
 
-function increaseBasketAmount(index, typeOfDish, basketIndex) {
-    basket[index].amount++;
-    allDishes[typeOfDish][basketIndex].amount++;
-    renderBasket();
+function increaseBasketAmount(typeOfDish, indexOfAllDishes) {
+    allDishes[typeOfDish][indexOfAllDishes].amount++;
+    renderBasket(typeOfDish, indexOfAllDishes);
 }
 
 
-function deleteFromBasket(index, typeOfDish, basketIndex) {
-    basket.splice(index, 1);
-    allDishes[typeOfDish][basketIndex].amount = 0;
-    renderBasket();
+function deleteFromBasket(basketIndex, typeOfDish, indexOfAllDishes) {
+    allDishes[typeOfDish][indexOfAllDishes].amount = 0;
+    basket.splice(basketIndex, 1);
+    renderBasket(typeOfDish, indexOfAllDishes);
 }
