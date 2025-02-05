@@ -36,12 +36,12 @@ function renderDrinkDishes() {
 }
 
 
-function renderBasket(typeOfDish, indexOfAllDishes) {
+function renderBasket() {
     let basketRef = document.getElementById('basket');
     basketRef.innerHTML = ``;
 
     for (let i = 0; i < basket.length; i++) {
-        basketRef.innerHTML += getBasketTemplate(i, typeOfDish, indexOfAllDishes);
+        basketRef.innerHTML += getBasketTemplate(i);
     }
 }
 
@@ -50,28 +50,44 @@ function addToBasket(typeOfDish, indexOfAllDishes) {
     if (allDishes[typeOfDish][indexOfAllDishes].amount == 0) {
         allDishes[typeOfDish][indexOfAllDishes].amount++;
         basket.push(allDishes[typeOfDish][indexOfAllDishes]);
-        renderBasket(typeOfDish, indexOfAllDishes);
+        renderBasket();
     }
     else {
-        return;
+        allDishes[typeOfDish][indexOfAllDishes].amount++;
+        renderBasket();
     }    
 }
 
 
-function decreaseBasketAmount(typeOfDish, indexOfAllDishes) {
-    allDishes[typeOfDish][indexOfAllDishes].amount--;
-    renderBasket(typeOfDish, indexOfAllDishes);
+function decreaseBasketAmount(basketIndex) {
+    if (basket[basketIndex].amount >= 2) {
+        basket[basketIndex].amount--;
+        renderBasket();
+    }
+    else {
+        deleteFromBasket(basketIndex);
+    }    
 }
 
 
-function increaseBasketAmount(typeOfDish, indexOfAllDishes) {
-    allDishes[typeOfDish][indexOfAllDishes].amount++;
-    renderBasket(typeOfDish, indexOfAllDishes);
+function increaseBasketAmount(basketIndex) {
+    basket[basketIndex].amount++;
+    //increasePrice(basketIndex);
+    renderBasket();
 }
 
 
-function deleteFromBasket(basketIndex, typeOfDish, indexOfAllDishes) {
-    allDishes[typeOfDish][indexOfAllDishes].amount = 0;
+function deleteFromBasket(basketIndex) {
+    basket[basketIndex].amount = 0;
     basket.splice(basketIndex, 1);
-    renderBasket(typeOfDish, indexOfAllDishes);
+    renderBasket();
 }
+
+
+/*function increasePrice(basketIndex) {
+    let calculatedPrice = basket[basketIndex].price * basket[basketIndex].amount;
+    //basket[basketIndex].price *= basket[basketIndex].amount;
+    console.log(allDishes.mainDishes[0].price);
+    console.log(calculatedPrice);
+    
+}*/
