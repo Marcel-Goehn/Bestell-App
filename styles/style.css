@@ -10,6 +10,10 @@ body, html {
     flex-direction: column;
 }
 
+.d_none {
+    display: none;
+}
+
 ::-webkit-scrollbar {
     width: 0.5rem;
 }

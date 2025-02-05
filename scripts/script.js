@@ -1,7 +1,10 @@
+let calculatedPrice;
+
 function init() {
     renderMainDishes();
     renderDessertDishes();
     renderDrinkDishes();
+    hideOrShowOrderDishes();
     renderBasket();
 }
 
@@ -46,10 +49,23 @@ function renderBasket() {
 }
 
 
+function hideOrShowOrderDishes() {
+    if (basket.length == 0) {
+        document.getElementById('order_dishes').classList.remove('d_none');
+        document.getElementById('horizontal_break').classList.add('d_none');
+    }
+    else {
+        document.getElementById('order_dishes').classList.add('d_none');
+        document.getElementById('horizontal_break').classList.remove('d_none');
+    }
+}
+
+
 function addToBasket(typeOfDish, indexOfAllDishes) {
     if (allDishes[typeOfDish][indexOfAllDishes].amount == 0) {
         allDishes[typeOfDish][indexOfAllDishes].amount++;
         basket.push(allDishes[typeOfDish][indexOfAllDishes]);
+        hideOrShowOrderDishes();
         renderBasket();
     }
     else {
@@ -72,7 +88,6 @@ function decreaseBasketAmount(basketIndex) {
 
 function increaseBasketAmount(basketIndex) {
     basket[basketIndex].amount++;
-    //increasePrice(basketIndex);
     renderBasket();
 }
 
@@ -80,14 +95,12 @@ function increaseBasketAmount(basketIndex) {
 function deleteFromBasket(basketIndex) {
     basket[basketIndex].amount = 0;
     basket.splice(basketIndex, 1);
+    hideOrShowOrderDishes();
     renderBasket();
 }
 
 
-/*function increasePrice(basketIndex) {
-    let calculatedPrice = basket[basketIndex].price * basket[basketIndex].amount;
-    //basket[basketIndex].price *= basket[basketIndex].amount;
-    console.log(allDishes.mainDishes[0].price);
-    console.log(calculatedPrice);
-    
-}*/
+function price(basketIndex) {
+    calculatedPrice = basket[basketIndex].amount * basket[basketIndex].price;
+    return calculatedPrice.toFixed(2);
+}

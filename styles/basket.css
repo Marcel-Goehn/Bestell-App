@@ -25,3 +25,7 @@ td {
     justify-content: center;
     gap: 8px;
 }
+
+.basket-padding {
+    padding-inline: 1rem;
+}
