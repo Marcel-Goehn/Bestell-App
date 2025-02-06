@@ -5,6 +5,10 @@ button {
     border-radius: 5px;
 }
 
+/*.basket-button {
+    width: 100%;
+}*/
+
 svg {
     cursor: pointer;
 }

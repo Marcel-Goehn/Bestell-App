@@ -162,3 +162,10 @@ function sendToHome() {
     endprice();
     renderBasket();
 }
+
+
+/*function openBasketDialog() {
+    document.getElementById('section').classList.add('d_none');
+    document.getElementById('aside').style = "display: block;";
+    document.getElementById('basket_button').style = "display: none;";
+}*/
