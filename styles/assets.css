@@ -1,0 +1,10 @@
+button {
+    padding: 0.625em 0.938em;
+    background-color: #FF7F00;
+    color: white;
+    border-radius: 5px;
+}
+
+svg {
+    cursor: pointer;
+}

@@ -81,6 +81,7 @@ aside {
 footer {
     background-color: #FF7F00;
     padding-block: 1rem;
+    color: white;
 }
 
 footer img {
@@ -98,7 +99,7 @@ footer img {
 }
 
 footer a {
-    color: black;
+    color: white;
 }
 
 footer a:hover {
@@ -121,6 +122,26 @@ footer a:hover {
 @media (max-width: 992px) {
     .container {
       max-width: 720px;
+    }
+
+    aside {
+        display: none;
+    }
+
+    section {
+        width: 100%;
+    }
+
+    main {
+        justify-content: center;
+    }
+
+    .food-class-nav {
+        border-right: 1px solid black;
+    }
+
+    .menu {
+        border-right: 1px solid black;
     }
   }
   

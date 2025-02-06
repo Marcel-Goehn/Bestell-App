@@ -1,5 +1,7 @@
 let calculatedPrice;
-let checkoutPrice = 0;
+let basketPrice = 0;
+let deliveryCosts = 5;
+let delivery = false;
 
 function init() {
     renderMainDishes();
@@ -70,7 +72,7 @@ function addToBasket(typeOfDish, indexOfAllDishes) {
         basket.push(allDishes[typeOfDish][indexOfAllDishes]);
         hideOrShowOrderDishes();
         renderBasket();
-        checkout();
+        subtotalPrice();
     }
     else {
         allDishes[typeOfDish][indexOfAllDishes].amount++;
@@ -83,7 +85,7 @@ function decreaseBasketAmount(basketIndex) {
     if (basket[basketIndex].amount >= 2) {
         basket[basketIndex].amount--;
         renderBasket();
-        checkout();
+        subtotalPrice();
     }
     else {
         deleteFromBasket(basketIndex);
@@ -94,7 +96,7 @@ function decreaseBasketAmount(basketIndex) {
 function increaseBasketAmount(basketIndex) {
     basket[basketIndex].amount++;
     renderBasket();
-    checkout();
+    subtotalPrice();
 }
 
 
@@ -103,7 +105,7 @@ function deleteFromBasket(basketIndex) {
     basket.splice(basketIndex, 1);
     hideOrShowOrderDishes();
     renderBasket();
-    checkout()
+    subtotalPrice()
 }
 
 
@@ -113,13 +115,50 @@ function price(basketIndex) {
 }
 
 
-function checkout() {
-    let totalPrice = document.getElementById('total');
-    totalPrice.innerHTML = ``;
+function subtotalPrice() {
+    let subtotal = document.getElementById('subtotal');
+    subtotal.innerHTML = ``;
 
     for (let i = 0; i < basket.length; i++) {
-        checkoutPrice += Number(document.getElementById('price_' + i).innerHTML);
-        totalPrice.innerHTML = checkoutPrice.toFixed(2);
+        basketPrice += Number(document.getElementById('price_' + i).innerHTML);
+        subtotal.innerHTML = basketPrice.toFixed(2);
+        endprice();
     }
-    checkoutPrice = 0;
+    basketPrice = 0;
+    renderBasket();
+}
+
+
+function endprice() {
+    if (!delivery) {
+        let totalPrice = document.getElementById('total');
+        let subtotal = document.getElementById('subtotal').innerHTML;
+        totalPrice.innerHTML = subtotal;
+    }
+    else {
+        let totalPrice = document.getElementById('total');
+        let subtotal = document.getElementById('subtotal').innerHTML;
+        let includeDeliveryCosts = Number(subtotal) + deliveryCosts;
+        let fixedDeliveryCosts = includeDeliveryCosts.toFixed(2);
+        totalPrice.innerHTML = fixedDeliveryCosts;
+    }
+}
+
+
+function pickUp() {
+    delivery = false;
+    let zero = 0;
+    zero;
+    document.getElementById('delivery').innerHTML = zero;
+    endprice();
+    renderBasket();
+}
+
+
+function sendToHome() {
+    delivery = true;
+    deliveryCosts;
+    document.getElementById('delivery').innerHTML = deliveryCosts;
+    endprice();
+    renderBasket();
 }

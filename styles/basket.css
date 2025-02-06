@@ -37,3 +37,8 @@ td {
     padding-inline: 1rem;
 }
 
+.sticky {
+    position: sticky;
+    top: 15px;
+}
+
