@@ -1,4 +1,5 @@
 let calculatedPrice;
+let checkoutPrice = 0;
 
 function init() {
     renderMainDishes();
@@ -45,7 +46,7 @@ function renderBasket() {
 
     for (let i = 0; i < basket.length; i++) {
         basketRef.innerHTML += getBasketTemplate(i);
-    }
+    }    
 }
 
 
@@ -53,12 +54,12 @@ function hideOrShowOrderDishes() {
     if (basket.length == 0) {
         document.getElementById('order_dishes').classList.remove('d_none');
         document.getElementById('horizontal_break').classList.add('d_none');
-        //document.getElementById('checkout').classList.add('d_none');
+        document.getElementById('checkout').classList.add('d_none');
     }
     else {
         document.getElementById('order_dishes').classList.add('d_none');
         document.getElementById('horizontal_break').classList.remove('d_none');
-        //document.getElementById('checkout').classList.remove('d_none');
+        document.getElementById('checkout').classList.remove('d_none');
     }
 }
 
@@ -68,8 +69,8 @@ function addToBasket(typeOfDish, indexOfAllDishes) {
         allDishes[typeOfDish][indexOfAllDishes].amount++;
         basket.push(allDishes[typeOfDish][indexOfAllDishes]);
         hideOrShowOrderDishes();
-        //checkout();
         renderBasket();
+        checkout();
     }
     else {
         allDishes[typeOfDish][indexOfAllDishes].amount++;
@@ -81,8 +82,8 @@ function addToBasket(typeOfDish, indexOfAllDishes) {
 function decreaseBasketAmount(basketIndex) {
     if (basket[basketIndex].amount >= 2) {
         basket[basketIndex].amount--;
-        //checkout();
         renderBasket();
+        checkout();
     }
     else {
         deleteFromBasket(basketIndex);
@@ -92,8 +93,8 @@ function decreaseBasketAmount(basketIndex) {
 
 function increaseBasketAmount(basketIndex) {
     basket[basketIndex].amount++;
-    //checkout();
     renderBasket();
+    checkout();
 }
 
 
@@ -101,8 +102,8 @@ function deleteFromBasket(basketIndex) {
     basket[basketIndex].amount = 0;
     basket.splice(basketIndex, 1);
     hideOrShowOrderDishes();
-    //checkout()
     renderBasket();
+    checkout()
 }
 
 
@@ -112,13 +113,13 @@ function price(basketIndex) {
 }
 
 
-/*function checkout() {
+function checkout() {
     let totalPrice = document.getElementById('total');
     totalPrice.innerHTML = ``;
 
     for (let i = 0; i < basket.length; i++) {
-        let element = basket[i].price;
-        let endPrice =+ element
-        totalPrice.innerHTML = endPrice;   
+        checkoutPrice += Number(document.getElementById('price_' + i).innerHTML);
+        totalPrice.innerHTML = checkoutPrice.toFixed(2);
     }
-}*/
+    checkoutPrice = 0;
+}
