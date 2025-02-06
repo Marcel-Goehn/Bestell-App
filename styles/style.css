@@ -89,6 +89,10 @@ aside {
     margin-top: 0.5rem;
 }
 
+.pb-3 {
+    padding-bottom: 1rem;
+}
+
 footer {
     background-color: #FF7F00;
     padding-block: 1rem;
