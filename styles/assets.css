@@ -5,10 +5,16 @@ button {
     border-radius: 5px;
 }
 
-/*.basket-button {
+.basket-button {
     width: 100%;
-}*/
+}
 
 svg {
     cursor: pointer;
+}
+
+.center-close-basket-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

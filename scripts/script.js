@@ -164,8 +164,24 @@ function sendToHome() {
 }
 
 
-/*function openBasketDialog() {
+function openBasketDialog() {
+    document.getElementById('header').classList.add('d_none');
+    document.getElementById('footer').classList.add('d_none');
     document.getElementById('section').classList.add('d_none');
+    document.getElementById('basket_button').classList.remove('basket-button-container');
+    document.getElementById('aside').classList.remove('hide-aside');
+    document.getElementById('close_basket').classList.remove('d_none');
+    /*document.getElementById('section').classList.add('d_none');
     document.getElementById('aside').style = "display: block;";
-    document.getElementById('basket_button').style = "display: none;";
-}*/
+    document.getElementById('basket_button').style = "display: none;";*/
+}
+
+
+function closeBasket() {
+    document.getElementById('close_basket').classList.add('d_none');
+    document.getElementById('aside').classList.add('hide-aside');
+    document.getElementById('basket_button').classList.add('basket-button-container');
+    document.getElementById('section').classList.remove('d_none');
+    document.getElementById('footer').classList.remove('d_none');
+    document.getElementById('header').classList.remove('d_none');
+}
