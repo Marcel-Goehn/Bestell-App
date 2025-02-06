@@ -29,3 +29,10 @@ td {
 .basket-padding {
     padding-inline: 1rem;
 }
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 1rem;
+}
