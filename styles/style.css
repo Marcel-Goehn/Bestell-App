@@ -14,6 +14,17 @@ body, html {
     display: none;
 }
 
+.responsive-font-size {
+    font-size: 1rem;
+    color: grey;
+}
+
+.responsive-font-size:hover {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #FF7F00;
+}
+
 ::-webkit-scrollbar {
     width: 0.5rem;
 }
@@ -143,16 +154,46 @@ footer a:hover {
     .menu {
         border-right: 1px solid black;
     }
+
+    header img {
+        width: 15%;
+    }
   }
   
 @media (max-width: 768px) {
     .container {
       max-width: 540px;
     }
+
+    .pizza {
+        width: 100px;
+        height: 100px;
+        bottom: -50px;
+    }
+
+    header img {
+        width: 20%;
+    }
   }
 
 @media (max-width: 576px) {
     .container {
       max-width: 100%;
+    }
+
+    .center-img {
+        margin-bottom: 50px;
+    }
+
+    .responsive-font-size {
+        font-size: 0.8rem;
+    }
+
+    .food-class-nav {
+        justify-content: center;
+    }
+
+    header img {
+        width: 30%;
     }
   }
