@@ -17,7 +17,7 @@ function renderMainDishes() {
     mainDishesRef.innerHTML = ``;
 
     for (let i = 0; i < allDishes.mainDishes.length; i++) {
-        mainDishesRef.innerHTML += getMainDishesTemplate(i);    
+        mainDishesRef.innerHTML += getMainDishesTemplate(i);
     }
 }
 
@@ -27,7 +27,7 @@ function renderDessertDishes() {
     dessertDishesRef.innerHTML = ``;
 
     for (let i = 0; i < allDishes.dessertDishes.length; i++) {
-        dessertDishesRef.innerHTML += getDessertDishesTemplate(i);        
+        dessertDishesRef.innerHTML += getDessertDishesTemplate(i);
     }
 }
 
@@ -37,7 +37,7 @@ function renderDrinkDishes() {
     drinkDishesRef.innerHTML = ``;
 
     for (let i = 0; i < allDishes.drinkDishes.length; i++) {
-        drinkDishesRef.innerHTML += getDrinkDishesTemplate(i);  
+        drinkDishesRef.innerHTML += getDrinkDishesTemplate(i);
     }
 }
 
@@ -48,7 +48,7 @@ function renderBasket() {
 
     for (let i = 0; i < basket.length; i++) {
         basketRef.innerHTML += getBasketTemplate(i);
-    }    
+    }
 }
 
 
@@ -77,7 +77,7 @@ function addToBasket(typeOfDish, indexOfAllDishes) {
     else {
         allDishes[typeOfDish][indexOfAllDishes].amount++;
         renderBasket();
-    }    
+    }
 }
 
 
@@ -89,7 +89,7 @@ function decreaseBasketAmount(basketIndex) {
     }
     else {
         deleteFromBasket(basketIndex);
-    }    
+    }
 }
 
 
@@ -171,9 +171,6 @@ function openBasketDialog() {
     document.getElementById('basket_button').classList.remove('basket-button-container');
     document.getElementById('aside').classList.remove('hide-aside');
     document.getElementById('close_basket').classList.remove('d_none');
-    /*document.getElementById('section').classList.add('d_none');
-    document.getElementById('aside').style = "display: block;";
-    document.getElementById('basket_button').style = "display: none;";*/
 }
 
 

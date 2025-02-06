@@ -53,6 +53,14 @@ header {
     padding-block: 1rem;
 }
 
+a {
+    transition: color 100ms, text-decoration 100ms, font-weight 100ms;
+}
+
+.transitions {
+    transition: background-color 100ms;
+}
+
 header img {
     width: 10%;
 }

@@ -1,5 +1,5 @@
 function getMainDishesTemplate(index) {
-    return `<div onclick="addToBasket('mainDishes', ${index})" class="menu mt-2">
+    return `<div onclick="addToBasket('mainDishes', ${index})" class="menu transitions mt-2">
                     <h3>${allDishes.mainDishes[index].name}</h3>
                     <div class="mt-2">${allDishes.mainDishes[index].ingredients}</div>
                     <div class="mt-2 price">${allDishes.mainDishes[index].price.toFixed(2)}€</div>
@@ -9,7 +9,7 @@ function getMainDishesTemplate(index) {
 
 
 function getDessertDishesTemplate(index) {
-    return `<div onclick="addToBasket('dessertDishes', ${index})" class="menu mt-2">
+    return `<div onclick="addToBasket('dessertDishes', ${index})" class="menu transitions mt-2">
                     <h3>${allDishes.dessertDishes[index].name}</h3>
                     <div class="mt-2">${allDishes.dessertDishes[index].ingredients}</div>
                     <div class="mt-2 price">${allDishes.dessertDishes[index].price.toFixed(2)}€</div>
@@ -19,7 +19,7 @@ function getDessertDishesTemplate(index) {
 
 
 function getDrinkDishesTemplate(index) {
-    return `<div onclick="addToBasket('drinkDishes', ${index})" class="menu mt-2">
+    return `<div onclick="addToBasket('drinkDishes', ${index})" class="menu transitions mt-2">
                     <h3>${allDishes.drinkDishes[index].name}</h3>
                     <div class="mt-2">${allDishes.drinkDishes[index].ingredients}</div>
                     <div class="mt-2 price">${allDishes.drinkDishes[index].price.toFixed(2)}€</div>

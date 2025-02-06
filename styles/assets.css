@@ -3,6 +3,12 @@ button {
     background-color: #FF7F00;
     color: white;
     border-radius: 5px;
+    transition: color 100ms, text-decoration 100ms, font-weight 100ms, background-color 100ms;
+}
+
+button:hover {
+    background-color: #ffce9e;
+    color: black;
 }
 
 .basket-button {
@@ -11,6 +17,11 @@ button {
 
 svg {
     cursor: pointer;
+    transition: color 100ms, text-decoration 100ms, font-weight 100ms;
+}
+
+svg:hover {
+    font-weight: bold;
 }
 
 .center-close-basket-btn {
