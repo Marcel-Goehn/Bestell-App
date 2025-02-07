@@ -42,3 +42,8 @@ td {
     top: 15px;
 }
 
+.basket-button-container {
+    position: sticky;
+    bottom: 0;
+}
+

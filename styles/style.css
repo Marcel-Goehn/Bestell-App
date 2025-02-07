@@ -76,6 +76,7 @@ main {
     flex-direction: row;
     gap: 10px;
     flex-grow: 1;
+    position: relative;
 }
 
 section {

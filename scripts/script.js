@@ -198,3 +198,14 @@ function clearBasket() {
     document.getElementById('delivery').innerHTML = 0.00;
     renderBasket();
 }
+
+
+function showBtnPrice() {
+        if (basket.length == 0) {
+            document.getElementById('basket_button_price').innerHTML = getSetToZeroTemplate();
+        }
+        else {
+            let endPriceAmount = document.getElementById('total').innerHTML;
+            document.getElementById('basket_button_price').innerHTML = getButtonPriceTemplate(endPriceAmount);
+        }
+}
