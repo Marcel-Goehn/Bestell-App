@@ -46,5 +46,5 @@ function getSetToZeroTemplate() {
 
 
 function getButtonPriceTemplate(endPriceAmount) {
-    return `(${endPriceAmount}€)`;
+    return ` (${endPriceAmount}€)`;
 }

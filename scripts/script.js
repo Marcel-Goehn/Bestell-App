@@ -77,6 +77,7 @@ function addToBasket(typeOfDish, indexOfAllDishes) {
     else {
         allDishes[typeOfDish][indexOfAllDishes].amount++;
         renderBasket();
+        subtotalPrice();
     }
 }
 
@@ -97,6 +98,7 @@ function increaseBasketAmount(basketIndex) {
     basket[basketIndex].amount++;
     renderBasket();
     subtotalPrice();
+    showBtnPrice()
 }
 
 
@@ -105,7 +107,8 @@ function deleteFromBasket(basketIndex) {
     basket.splice(basketIndex, 1);
     hideOrShowOrderDishes();
     renderBasket();
-    subtotalPrice()
+    subtotalPrice();
+    showBtnPrice();
 }
 
 
@@ -123,6 +126,7 @@ function subtotalPrice() {
         basketPrice += Number(document.getElementById('price_' + i).innerHTML);
         subtotal.innerHTML = basketPrice.toFixed(2);
         endprice();
+        showBtnPrice();
     }
     basketPrice = 0;
     renderBasket();
@@ -151,6 +155,7 @@ function pickUp() {
     zero;
     document.getElementById('delivery').innerHTML = zero;
     endprice();
+    showBtnPrice();
     renderBasket();
 }
 
@@ -160,6 +165,7 @@ function sendToHome() {
     deliveryCosts;
     document.getElementById('delivery').innerHTML = deliveryCosts;
     endprice();
+    showBtnPrice();
     renderBasket();
 }
 
@@ -196,6 +202,7 @@ function clearBasket() {
     document.getElementById('horizontal_break').classList.add('d_none');
     document.getElementById('order_dishes').classList.remove('d_none');
     document.getElementById('delivery').innerHTML = 0.00;
+    document.getElementById('basket_button_price').innerHTML = getSetToZeroTemplate();
     renderBasket();
 }
 
