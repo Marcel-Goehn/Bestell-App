@@ -182,3 +182,19 @@ function closeBasket() {
     document.getElementById('footer').classList.remove('d_none');
     document.getElementById('header').classList.remove('d_none');
 }
+
+
+function clearBasket() {
+    for (let i = 0; i < basket.length; i++) {
+        basket[i].amount = 0;    
+    }
+    basket = [];
+    if(delivery) {
+        delivery = false;
+    }
+    document.getElementById('checkout').classList.add('d_none');
+    document.getElementById('horizontal_break').classList.add('d_none');
+    document.getElementById('order_dishes').classList.remove('d_none');
+    document.getElementById('delivery').innerHTML = 0.00;
+    renderBasket();
+}

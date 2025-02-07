@@ -34,7 +34,6 @@
     border: 1px solid black;
     display: flex;
     gap: 10px;
-    border-right: none;
     align-items: center;
 }
 
@@ -59,7 +58,6 @@
     padding: 0.625em 0.938em;
     position: relative;
     cursor: pointer;
-    border-right: none;
 }
 
 .menu:hover {

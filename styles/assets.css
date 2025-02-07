@@ -1,9 +1,25 @@
+input {
+    padding: 0.625em 0.938em;
+    background-color: #FF7F00;
+    color: white;
+    border-radius: 5px;
+    transition: color 100ms, text-decoration 100ms, font-weight 100ms, background-color 100ms;
+    cursor: pointer;
+    border: unset;
+}
+
+input:hover {
+    background-color: #ffce9e;
+    color: black;
+}
+
 button {
     padding: 0.625em 0.938em;
     background-color: #FF7F00;
     color: white;
     border-radius: 5px;
     transition: color 100ms, text-decoration 100ms, font-weight 100ms, background-color 100ms;
+    border: unset;
 }
 
 button:hover {
@@ -11,17 +27,30 @@ button:hover {
     color: black;
 }
 
+.order {
+    color: white;
+}
+
+.order-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .basket-button {
     width: 100%;
+    padding-block: 1.5em;
+    font-size: 1.5rem;
 }
 
 svg {
     cursor: pointer;
-    transition: color 100ms, text-decoration 100ms, font-weight 100ms;
+    transition: color 100ms, text-decoration 100ms, font-weight 100ms, filter 100ms;
 }
 
 svg:hover {
     font-weight: bold;
+    filter: drop-shadow(0px 0px 4px #262626);
 }
 
 .center-close-basket-btn {
@@ -29,3 +58,4 @@ svg:hover {
     justify-content: center;
     align-items: center;
 }
+

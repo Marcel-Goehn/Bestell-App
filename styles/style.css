@@ -74,6 +74,7 @@ header img {
 main { 
     display: flex;
     flex-direction: row;
+    gap: 10px;
     flex-grow: 1;
 }
 
@@ -85,8 +86,8 @@ aside {
     position: relative;
     width: 300px;
     flex-grow: 1;
-    border: 1px solid black;
-    border-top: none;
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2),
+                -4px 0 8px rgba(0, 0, 0, 0.2);
 }
 
 .mt-3 {
@@ -99,6 +100,14 @@ aside {
 
 .pb-3 {
     padding-bottom: 1rem;
+}
+
+.confirm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    font-size: 3rem;
 }
 
 footer {
@@ -151,20 +160,16 @@ footer a:hover {
         display: none;
     }
 
+    aside {
+        border-top: 1px solid black;
+    }
+
     section {
         width: 100%;
     }
 
     main {
         justify-content: center;
-    }
-
-    .food-class-nav {
-        border-right: 1px solid black;
-    }
-
-    .menu {
-        border-right: 1px solid black;
     }
 
     header img {
