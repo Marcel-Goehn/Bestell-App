@@ -27,10 +27,6 @@ button:hover {
     color: black;
 }
 
-.order {
-    color: white;
-}
-
 .order-btn {
     display: flex;
     justify-content: center;

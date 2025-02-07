@@ -21,6 +21,13 @@
         </div>
     </header>
 
+    <dialog id="overlay">
+        <div class="wrapper">
+            <p>Vielen Dank für Ihre Bestellung!</p>
+            <button class="mt-3" onclick="closeDialog()">Schließen</button>
+        </div>
+    </dialog>
+
     <main class="container">
         <section id="section">
             <div class="center-img">
@@ -90,9 +97,7 @@
                         <button onclick="sendToHome()">Lieferdienst</button>
                     </div>
                     <div class="order-btn">
-                        <button onclick="clearBasket()" class="mt-2">
-                            <a class="order" target="_blank" href="./order.html">Bestellen</a>
-                        </button>
+                        <button onclick="clearBasket()" class="mt-2">Bestellen</button>
                     </div>
                 </div> 
                 <div id="close_basket" class="d_none mt-2 pb-3 center-close-basket-btn">

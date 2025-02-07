@@ -2,6 +2,8 @@ let calculatedPrice;
 let basketPrice = 0;
 let deliveryCosts = 5;
 let delivery = false;
+const dialog = document.getElementById('overlay');
+const wrapper = document.querySelector('.wrapper');
 
 function init() {
     renderMainDishes();
@@ -204,6 +206,7 @@ function clearBasket() {
     document.getElementById('delivery').innerHTML = 0.00;
     document.getElementById('basket_button_price').innerHTML = getSetToZeroTemplate();
     renderBasket();
+    showDialog();
 }
 
 
@@ -215,4 +218,20 @@ function showBtnPrice() {
             let endPriceAmount = document.getElementById('total').innerHTML;
             document.getElementById('basket_button_price').innerHTML = getButtonPriceTemplate(endPriceAmount);
         }
+}
+
+
+function showDialog() {
+    dialog.showModal();
+}
+
+
+function closeDialog() {
+    dialog.close();
+}
+
+dialog.onclick = function(e) {
+    if (!wrapper.contains(e.target)) {
+        dialog.close();
+    }
 }
