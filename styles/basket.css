@@ -40,6 +40,8 @@ td {
 .sticky {
     position: sticky;
     top: 15px;
+    max-height: 100dvh;
+    overflow-y: auto;
 }
 
 .basket-button-container {
